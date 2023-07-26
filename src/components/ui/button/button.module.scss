@@ -1,0 +1,113 @@
+@mixin button {
+  all: unset;
+
+  cursor: pointer;
+  user-select: none;
+
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 28px;
+
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
+  font-style: normal;
+  line-height: var(--font-size-xxl);
+
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+
+  transition:
+    var(--transition-duration-basic) background-color,
+    var(--transition-duration-basic) color;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-outline-focus);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &.fullWidth {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.primary {
+  @include button;
+
+  color: var(--color-text-primary);
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
+
+  &:hover:enabled {
+    background-color: var(--color-primary-hover);
+  }
+
+  &:active:enabled {
+    background-color: var(--color-primary-active);
+  }
+}
+
+.secondary {
+  @include button;
+
+  color: var(--color-text-primary);
+  background-color: var(--color-dark-300);
+  box-shadow: 0 4px 4px 0 rgb(77 86 96 / 13%);
+
+  &:hover:enabled {
+    background-color: var(--color-dark-100);
+  }
+
+  &:active:enabled {
+    background-color: var(--color-dark-500);
+  }
+}
+
+.tertiary {
+  @include button;
+
+  color: var(--color-text-link);
+  background-color: var(--color-dark-900);
+  border: 1px solid var(--color-primary);
+
+  &:hover:enabled {
+    background-color: var(--color-dark-500);
+    border: 1px solid var(--color-primary-active);
+  }
+
+  &:active:enabled {
+    background-color: var(--color-accent-900);
+    border: 1px solid var(--color-primary-active);
+  }
+}
+
+.link {
+  @include button;
+
+  padding: 6px 0;
+  font-size: var(--font-size-m);
+  color: var(--color-text-link);
+
+  &:focus:enabled {
+    color: var(--color-text-link);
+    border-radius: 130px;
+    outline: 2px solid var(--color-outline-focus);
+  }
+
+  &:hover:enabled {
+    color: var(--color-primary-hover);
+  }
+
+  &:active:enabled {
+    color: var(--color-primary-active);
+  }
+}
