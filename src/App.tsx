@@ -1,7 +1,7 @@
-import { Button } from './components/ui/button'
 import s from './app.module.scss'
-import { Typography } from './components/ui/typography'
+import { Button } from './components/ui/button'
 import { Card } from './components/ui/card'
+import { Typography } from './components/ui/typography'
 
 export function App() {
   return (
