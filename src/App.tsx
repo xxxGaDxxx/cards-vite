@@ -12,6 +12,9 @@ export function App() {
         <Typography as={'span'} variant={'body2'}>
           asdwasd
         </Typography>
+        <Typography as={'span'} variant={'body2'}>
+          asdwasd
+        </Typography>
       </Card>
     </div>
   )
