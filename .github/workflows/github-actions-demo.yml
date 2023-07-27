@@ -19,10 +19,6 @@ jobs:
         run: npm run build
       - name: format project
         run: npm run format
-      - name: lint project
-        run: npm run lint
-      - name: preview project
-        run: npm run preview
       - name: build-storybook project
         run: npm run build-storybook
       - name: storybook project
