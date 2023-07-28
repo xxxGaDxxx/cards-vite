@@ -4,10 +4,16 @@ import s from './app.module.scss'
 import { Button } from './components/ui/button'
 import { Card } from './components/ui/card'
 import { Checkbox } from './components/ui/checkbox'
+import { TextField } from './components/ui/textField'
 import { Typography } from './components/ui/typography'
 
 export function App() {
   const [check, setCheck] = useState(false)
+  const [textInput, setTextInput] = useState('')
+
+  const onChangeHandler = (value: string) => {
+    setTextInput(value)
+  }
 
   return (
     <div className={s.container}>
@@ -19,6 +25,8 @@ export function App() {
         </Typography>
 
         <Checkbox checked={check} onChange={() => setCheck(prev => !prev)} />
+
+        <TextField value={textInput} type={'search'} onValueChange={onChangeHandler} />
       </Card>
     </div>
   )
