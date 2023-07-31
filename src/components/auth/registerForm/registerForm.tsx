@@ -2,17 +2,17 @@ import { SubmitHandler } from 'react-hook-form'
 
 import { Button } from '../../ui/button'
 import { Card } from '../../ui/card'
-import { ControlledCheckbox, ControlledTextField } from '../../ui/controlled'
+import { ControlledTextField } from '../../ui/controlled'
 import { Typography } from '../../ui/typography'
-import { LoginFormType, useLoginForm } from '../schemaForms.ts'
+import { RegisterFormType, useRegisterForm } from '../schemaForms.ts'
 import s from '../stylesForm.module.scss'
 
-type LoginFormProps = {
-  onSubmit: SubmitHandler<LoginFormType>
+type RegisterFormProps = {
+  onSubmit: SubmitHandler<RegisterFormType>
 }
 
-export const LoginForm = ({ onSubmit }: LoginFormProps) => {
-  const { control, handleSubmit } = useLoginForm(onSubmit)
+export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
+  const { control, handleSubmit } = useRegisterForm(onSubmit)
 
   return (
     <Card className={s.card}>
@@ -37,17 +37,14 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
           containerProps={{ className: s.textField }}
         />
 
-        <ControlledCheckbox
-          label={'Remember me'}
-          name={'rememberMe'}
+        <ControlledTextField
+          label={'Confirm Password'}
+          name={'confirmPassword'}
           control={control}
-          position={'left'}
-          className={s.checkbox}
+          type={'password'}
+          placeholder={'confirm password'}
+          containerProps={{ className: s.textFieldConfirmPassword }}
         />
-
-        <Typography as={'a'} variant={'body2'} className={s.forgotPassword}>
-          Forgot password?
-        </Typography>
 
         <Button type={'submit'} fullWidth className={s.button}>
           Submit
@@ -55,11 +52,11 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
       </form>
 
       <Typography as={'p'} variant={'body2'} className={s.questionParagraph}>
-        Don&apos;t have an account?
+        Already have an account?
       </Typography>
 
       <Button as={'a'} variant={'link'} className={s.signUp}>
-        Sign Up
+        Sign In
       </Button>
     </Card>
   )
