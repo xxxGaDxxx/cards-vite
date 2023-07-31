@@ -1,6 +1,11 @@
 .container {
   display: flex;
   align-items: center;
+
+  &.error {
+    color: var(--color-danger-300);
+    border-color: var(--color-danger-300);
+  }
 }
 
 .label {
@@ -69,6 +74,10 @@
 
   &:active:not(.disabled) {
     background-color: var(--color-dark-100);
+  }
+
+  &.left {
+    margin-left: -9px;
   }
 }
 

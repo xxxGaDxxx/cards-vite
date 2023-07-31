@@ -1,0 +1,44 @@
+.card {
+  max-width: 420px;
+  padding: 33px 36px 29px;
+
+  > h1 {
+    margin-bottom: 27px;
+    text-align: center;
+  }
+}
+
+.checkbox {
+  margin-bottom: 12px;
+}
+
+.textField {
+  margin-bottom: 24px;
+}
+
+.button {
+  margin-bottom: 20px;
+}
+
+.forgotPassword {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: flex-end;
+
+  margin-right: 12px;
+  margin-bottom: 66px;
+}
+
+.noAccount {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 11px;
+  color: var(--color-light-900);
+}
+
+.signUp {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}

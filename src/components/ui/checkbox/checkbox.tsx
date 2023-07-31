@@ -16,40 +16,49 @@ export type CheckboxType = {
   required?: boolean
   label?: string
   id?: string
+  errorMessage?: string
+  position?: 'left'
 }
 
 export const Checkbox: FC<CheckboxType> = props => {
-  const { label, className, checked, id, required, disabled, onChange } = props
+  const { label, className, checked, position, id, required, disabled, errorMessage, onChange } =
+    props
 
   const classNames = {
     container: clsx(s.container, className),
     label: clsx(s.label, disabled && s.disabled),
     button: s.button,
     indicator: s.indicator,
-    checkWrapper: clsx(s.checkWrapper, disabled && s.disabled),
+    checkWrapper: clsx(s.checkWrapper, disabled && s.disabled, position === 'left' && s.left),
+    error: s.error,
   }
 
   return (
-    <div className={classNames.container}>
-      <Typography as={'label'} variant="body2" className={classNames.label}>
-        <div className={classNames.checkWrapper}>
-          <CheckboxRadix.Root
-            className={s.button}
-            checked={checked}
-            disabled={disabled}
-            id={id}
-            onCheckedChange={onChange}
-            required={required}
-          >
-            {checked && (
-              <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
-                <Check />
-              </CheckboxRadix.Indicator>
-            )}
-          </CheckboxRadix.Root>
-        </div>
-        {label}
+    <>
+      <div className={classNames.container}>
+        <Typography as={'label'} variant="body2" className={classNames.label}>
+          <div className={classNames.checkWrapper}>
+            <CheckboxRadix.Root
+              className={s.button}
+              checked={checked}
+              disabled={disabled}
+              id={id}
+              onCheckedChange={onChange}
+              required={required}
+            >
+              {checked && (
+                <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
+                  <Check />
+                </CheckboxRadix.Indicator>
+              )}
+            </CheckboxRadix.Root>
+          </div>
+          {label}
+        </Typography>
+      </div>
+      <Typography variant="error" className={classNames.error}>
+        {errorMessage}
       </Typography>
-    </div>
+    </>
   )
 }
