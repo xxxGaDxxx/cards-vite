@@ -22,10 +22,10 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
       </Typography>
       <form onSubmit={handleSubmit}>
         <ControlledTextField
-          label={'Login'}
-          name={'login'}
+          label={'Email'}
+          name={'email'}
           control={control}
-          placeholder={'login'}
+          placeholder={'email'}
           containerProps={{ className: s.textField }}
         />
 

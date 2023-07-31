@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 export const shemaLogin = z.object({
-  login: z.string().trim().nonempty('Enter Login').min(4, 'Login must be at least 8 characters'),
+  email: z.string().trim().nonempty('Enter Email').email('Invalid email address'),
   password: z
     .string()
     .trim()
