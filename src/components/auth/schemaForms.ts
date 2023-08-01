@@ -55,3 +55,19 @@ export const useRegisterForm = (onSubmit: SubmitHandler<RegisterFormType>) => {
 
   return { handleSubmit: handleSubmit(onSubmit), ...restProps }
 }
+
+//Forgot password form
+export const schemaForgot = z.object({
+  email: validate.email,
+})
+
+export type ForgotFormType = z.infer<typeof schemaForgot>
+
+export const useForgotForm = (onSubmit: SubmitHandler<ForgotFormType>) => {
+  const { handleSubmit, ...restProps } = useForm<ForgotFormType>({
+    resolver: zodResolver(schemaRegister),
+    mode: 'onSubmit',
+  })
+
+  return { handleSubmit: handleSubmit(onSubmit), ...restProps }
+}

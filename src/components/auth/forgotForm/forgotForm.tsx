@@ -4,20 +4,20 @@ import { Button } from '../../ui/button'
 import { Card } from '../../ui/card'
 import { ControlledTextField } from '../../ui/controlled'
 import { Typography } from '../../ui/typography'
-import { RegisterFormType, useRegisterForm } from '../schemaForms.ts'
+import { ForgotFormType, useRegisterForm } from '../schemaForms.ts'
 import s from '../stylesForm.module.scss'
 
-type RegisterFormProps = {
-  onSubmit: SubmitHandler<RegisterFormType>
+type ForgotFormProps = {
+  onSubmit: SubmitHandler<ForgotFormType>
 }
 
-export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
+export const ForgotForm = ({ onSubmit }: ForgotFormProps) => {
   const { control, handleSubmit } = useRegisterForm(onSubmit)
 
   return (
     <Card className={s.card}>
       <Typography variant={'large'} as={'h1'}>
-        Signe Up
+        Forgot your password?
       </Typography>
       <form onSubmit={handleSubmit}>
         <ControlledTextField
@@ -25,26 +25,11 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
           name={'email'}
           control={control}
           placeholder={'email'}
-          containerProps={{ className: s.textField }}
+          containerProps={{ className: s.textFieldForgotEmail }}
         />
-
-        <ControlledTextField
-          label={'Password'}
-          name={'password'}
-          control={control}
-          type={'password'}
-          placeholder={'password'}
-          containerProps={{ className: s.textField }}
-        />
-
-        <ControlledTextField
-          label={'Confirm Password'}
-          name={'confirmPassword'}
-          control={control}
-          type={'password'}
-          placeholder={'confirm password'}
-          containerProps={{ className: s.textFieldConfirmPassword }}
-        />
+        <Typography as={'p'} variant={'body2'} className={s.descriptionParagraph}>
+          Enter your email address and we will send you further instructions
+        </Typography>
 
         <Button type={'submit'} fullWidth className={s.button}>
           Submit
@@ -52,11 +37,11 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
       </form>
 
       <Typography as={'p'} variant={'body2'} className={s.questionParagraph}>
-        Already have an account?
+        Did you remember your password?
       </Typography>
 
       <Button as={'a'} variant={'link'} className={s.signUp}>
-        Sign In
+        Try logging in
       </Button>
     </Card>
   )
