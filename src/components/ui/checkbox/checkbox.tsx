@@ -30,35 +30,34 @@ export const Checkbox: FC<CheckboxType> = props => {
     button: s.button,
     indicator: s.indicator,
     checkWrapper: clsx(s.checkWrapper, disabled && s.disabled, position === 'left' && s.left),
-    error: s.error,
+    error: clsx(s.error, s.messageError),
   }
 
   return (
-    <>
-      <div className={classNames.container}>
-        <Typography as={'label'} variant="body2" className={classNames.label}>
-          <div className={classNames.checkWrapper}>
-            <CheckboxRadix.Root
-              className={s.button}
-              checked={checked}
-              disabled={disabled}
-              id={id}
-              onCheckedChange={onChange}
-              required={required}
-            >
-              {checked && (
-                <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
-                  <Check />
-                </CheckboxRadix.Indicator>
-              )}
-            </CheckboxRadix.Root>
-          </div>
-          {label}
-        </Typography>
-      </div>
+    <div className={classNames.container}>
+      <Typography as={'label'} variant="body2" className={classNames.label}>
+        <div className={classNames.checkWrapper}>
+          <CheckboxRadix.Root
+            className={s.button}
+            checked={checked}
+            disabled={disabled}
+            id={id}
+            onCheckedChange={onChange}
+            required={required}
+          >
+            {checked && (
+              <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
+                <Check />
+              </CheckboxRadix.Indicator>
+            )}
+          </CheckboxRadix.Root>
+        </div>
+        {label}
+      </Typography>
+
       <Typography variant="error" className={classNames.error}>
         {errorMessage}
       </Typography>
-    </>
+    </div>
   )
 }

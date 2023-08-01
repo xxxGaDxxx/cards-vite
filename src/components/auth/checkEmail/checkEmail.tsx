@@ -21,9 +21,7 @@ export const CheckEmail = () => {
         We’ve sent an Email with instructions to example@mail.com
       </Typography>
 
-      <Button fullWidth className={s.button}>
-        Back to Sign In
-      </Button>
+      <Button fullWidth>Back to Sign In</Button>
     </Card>
   )
 }

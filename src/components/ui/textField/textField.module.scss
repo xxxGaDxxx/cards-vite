@@ -1,4 +1,5 @@
 .root {
+  position: relative;
   width: 100%;
 }
 
@@ -40,6 +41,12 @@
     color: var(--color-danger-300);
     border-color: var(--color-danger-300);
   }
+}
+
+.messageError {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
 }
 
 .label {

@@ -48,7 +48,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       fieldContainer: clsx(s.fieldContainer),
       field: clsx(s.field, !!errorMessage && s.error, isShowSearchSvg && s.paddingStart, className),
       label: clsx(s.label, labelProps?.className),
-      error: clsx(s.error),
+      error: clsx(s.error, s.messageError),
     }
 
     return (
@@ -82,11 +82,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               {showPassword ? <VisibilityOff /> : <Eye />}
             </button>
           )}
-        </div>
 
-        <Typography variant="error" className={classNames.error}>
-          {errorMessage}
-        </Typography>
+          <Typography variant="error" className={classNames.error}>
+            {errorMessage}
+          </Typography>
+        </div>
       </div>
     )
   }
