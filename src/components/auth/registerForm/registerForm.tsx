@@ -43,7 +43,7 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
           control={control}
           type={'password'}
           placeholder={'confirm password'}
-          containerProps={{ className: s.textFieldConfirmPassword }}
+          containerProps={{ className: s.textField }}
         />
 
         <Button type={'submit'} fullWidth className={s.button}>

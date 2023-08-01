@@ -4,7 +4,7 @@ import { Button } from '../../ui/button'
 import { Card } from '../../ui/card'
 import { ControlledTextField } from '../../ui/controlled'
 import { Typography } from '../../ui/typography'
-import { ForgotFormType, useForgotForm } from '../schemaForms.ts'
+import { ForgotFormType, useRegisterForm } from '../schemaForms.ts'
 import s from '../stylesForm.module.scss'
 
 type ForgotFormProps = {
@@ -12,11 +12,11 @@ type ForgotFormProps = {
 }
 
 export const ForgotForm = ({ onSubmit }: ForgotFormProps) => {
-  const { control, handleSubmit } = useForgotForm(onSubmit)
+  const { control, handleSubmit } = useRegisterForm(onSubmit)
 
   return (
     <Card className={s.card}>
-      <Typography variant={'large'} as={'h1'}>
+      <Typography variant={'large'} as={'h1'} className={s.bigMargin}>
         Forgot your password?
       </Typography>
       <form onSubmit={handleSubmit}>

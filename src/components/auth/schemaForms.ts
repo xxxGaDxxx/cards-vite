@@ -71,3 +71,19 @@ export const useForgotForm = (onSubmit: SubmitHandler<ForgotFormType>) => {
 
   return { handleSubmit: handleSubmit(onSubmit), ...restProps }
 }
+
+//Create Password form
+export const schemaCreatePassword = z.object({
+  password: validate.password,
+})
+
+export type CreatePasswordFormType = z.infer<typeof schemaCreatePassword>
+
+export const useCreatePasswordForm = (onSubmit: SubmitHandler<CreatePasswordFormType>) => {
+  const { handleSubmit, ...restProps } = useForm<CreatePasswordFormType>({
+    resolver: zodResolver(schemaRegister),
+    mode: 'onSubmit',
+  })
+
+  return { handleSubmit: handleSubmit(onSubmit), ...restProps }
+}

@@ -18,7 +18,7 @@ export const CheckEmail = () => {
       </div>
 
       <Typography as={'p'} variant={'body2'} className={style.descriptionParagraph}>
-        Enter your email address and we will send you further instructions
+        We’ve sent an Email with instructions to example@mail.com
       </Typography>
 
       <Button fullWidth className={s.button}>
