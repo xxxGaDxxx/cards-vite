@@ -47,7 +47,7 @@ export const RegisterForm = ({ onSubmit }: RegisterFormProps) => {
         />
 
         <Button type={'submit'} fullWidth className={s.button}>
-          Submit
+          Sign Up
         </Button>
       </form>
 

@@ -32,7 +32,7 @@ export const ForgotForm = ({ onSubmit }: ForgotFormProps) => {
         </Typography>
 
         <Button type={'submit'} fullWidth className={s.button}>
-          Submit
+          Send Instructions
         </Button>
       </form>
 

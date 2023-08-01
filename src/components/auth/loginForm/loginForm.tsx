@@ -50,7 +50,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         </Typography>
 
         <Button type={'submit'} fullWidth className={s.button}>
-          Submit
+          Sign In
         </Button>
       </form>
 
