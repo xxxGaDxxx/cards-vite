@@ -28,6 +28,7 @@ export function App() {
         <Checkbox checked={check} onChange={() => setCheck(prev => !prev)} />
 
         <TextField value={textInput} type={'search'} onValueChange={onChangeHandler} />
+        <div style={{ marginBottom: '20px' }}></div>
       </Card>
     </div>
   )
