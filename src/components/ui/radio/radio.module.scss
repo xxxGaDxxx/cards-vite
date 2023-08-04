@@ -1,0 +1,70 @@
+button {
+  all: unset;
+}
+
+.radioGroupRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radioGroupItem {
+  position: relative;
+
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid var(--color-primary);
+  border-radius: 100%;
+}
+
+.radioGroupIndicator {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    content: '';
+
+    display: block;
+
+    width: 10px;
+    height: 10px;
+
+    background-color: var(--color-primary);
+    border-radius: 50%;
+  }
+}
+
+.label {
+  padding-left: 12px;
+}
+
+.containerItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:hover::before {
+    content: '';
+
+    position: absolute;
+    z-index: 0;
+    left: -9px;
+
+    width: 36px;
+    height: 36px;
+
+    background-color: var(--color-dark-500);
+    border-radius: 50%;
+  }
+}
