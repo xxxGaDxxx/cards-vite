@@ -1,20 +1,17 @@
+import { useState } from 'react'
+
 import type { Meta } from '@storybook/react'
-import { StoryObj } from '@storybook/react'
 
-import { Tabs } from './tabs.tsx'
+import { ItemsType, Tabs } from './tabs.tsx'
 
-const meta = {
+export default {
   title: 'Components/Tabs',
-  component: Tabs,
   tags: ['autodocs'],
 } satisfies Meta<typeof Tabs>
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
-  args: {
-    items: [
+export const Default = {
+  render() {
+    const tabs = [
       {
         key: '1',
         label: `Tab 1`,
@@ -27,8 +24,14 @@ export const Default: Story = {
         key: '3',
         label: `Tab 3`,
       },
-    ],
-    defaultActiveKey: '2',
-    onClick: () => {},
+    ]
+
+    const [activeBtn, setActiveBtn] = useState(tabs[1])
+
+    const onClickHandler = (item: ItemsType) => {
+      setActiveBtn(item)
+    }
+
+    return <Tabs items={tabs} onClick={onClickHandler} activeButton={activeBtn} />
   },
 }
