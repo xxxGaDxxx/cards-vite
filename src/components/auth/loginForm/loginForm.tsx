@@ -1,9 +1,7 @@
+import { DevTool } from '@hookform/devtools'
 import { SubmitHandler } from 'react-hook-form'
 
-import { Button } from '../../ui/button'
-import { Card } from '../../ui/card'
-import { ControlledCheckbox, ControlledTextField } from '../../ui/controlled'
-import { Typography } from '../../ui/typography'
+import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '../../ui'
 import { LoginFormType, useLoginForm } from '../schemaForms.ts'
 import s from '../stylesForm.module.scss'
 
@@ -20,6 +18,10 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
         Signe In
       </Typography>
       <form onSubmit={handleSubmit}>
+        {/*{rhf dev tool}*/}
+        <DevTool control={control} />
+        {/*{rhf dev tool}*/}
+
         <ControlledTextField
           label={'Email'}
           name={'email'}
