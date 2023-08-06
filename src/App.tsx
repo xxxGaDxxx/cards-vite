@@ -1,13 +1,18 @@
 import { useState } from 'react'
 
 import s from './app.module.scss'
-import { Header } from './components/header'
-import { Button } from './components/ui/button'
-import { Card } from './components/ui/card'
-import { Checkbox } from './components/ui/checkbox'
-import { DataRadioType, Radio } from './components/ui/radio'
-import { TextField } from './components/ui/textField'
-import { Typography } from './components/ui/typography'
+import {
+  ItemsType,
+  Tabs,
+  Header,
+  Button,
+  Card,
+  Checkbox,
+  DataRadioType,
+  Radio,
+  Typography,
+  TextField,
+} from './components'
 
 const dataRadio: DataRadioType[] = [
   {
@@ -32,6 +37,21 @@ const dataRadio: DataRadioType[] = [
   },
 ]
 
+const tabs: ItemsType[] = [
+  {
+    label: 'js',
+    key: '1',
+  },
+  {
+    label: 'ts',
+    key: '2',
+  },
+  {
+    label: 'react',
+    key: '3',
+  },
+]
+
 export function App() {
   const [check, setCheck] = useState(false)
   const [textInput, setTextInput] = useState('')
@@ -43,6 +63,11 @@ export function App() {
 
   const handleRadioChange = (value: string) => {
     setSelectedValue(value)
+  }
+  const [activeTabs, setActiveTabs] = useState<ItemsType>(tabs[1])
+
+  const onClickTabs = (item: ItemsType) => {
+    setActiveTabs(item)
   }
 
   return (
@@ -65,6 +90,8 @@ export function App() {
           defaultValue={selectedValue}
           onValueChange={handleRadioChange}
         />
+        <div style={{ marginBottom: '20px' }}></div>
+        <Tabs items={tabs} onClick={onClickTabs} activeButton={activeTabs} />
       </Card>
     </div>
   )

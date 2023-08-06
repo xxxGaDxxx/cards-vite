@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 import { LoginForm } from './loginForm.tsx'
 
 export default {
-  title: 'Components/LoginForm',
+  title: 'Authorizing/Login Form',
   component: LoginForm,
   tags: ['autodocs'],
 } as Meta<typeof LoginForm>

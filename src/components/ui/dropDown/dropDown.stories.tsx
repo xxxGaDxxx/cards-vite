@@ -6,7 +6,7 @@ import { Avatar } from '../avatar'
 import { DropDown } from './dropDown.tsx'
 
 const meta = {
-  title: 'Components/DropDown',
+  title: 'Components/Drop Down',
   component: DropDown,
   tags: ['autodocs'],
 } satisfies Meta<typeof DropDown>

@@ -3,7 +3,7 @@ import type { Meta } from '@storybook/react'
 import { CreatePasswordForm } from './createPasswordForm.tsx'
 
 export default {
-  title: 'Components/CreatePasswordForm',
+  title: 'Authorizing/Create Password Form',
   component: CreatePasswordForm,
   tags: ['autodocs'],
 } as Meta<typeof CreatePasswordForm>

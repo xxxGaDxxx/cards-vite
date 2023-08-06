@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -12,16 +12,13 @@ export type ItemsType = {
 export type TabsType = {
   items: ItemsType[]
   onClick: (item: ItemsType) => void
-  defaultActiveKey?: string
+  activeButton: ItemsType
   className?: string
 }
 
-export const Tabs: FC<TabsType> = ({ defaultActiveKey, onClick, items, className }) => {
-  const [activeButton, setActiveButton] = useState(defaultActiveKey || items?.at(0))
-
+export const Tabs: FC<TabsType> = ({ activeButton, onClick, items, className }) => {
   const onClickHandler = (item: ItemsType) => {
     onClick(item)
-    setActiveButton(item.key)
   }
 
   return (
@@ -31,7 +28,7 @@ export const Tabs: FC<TabsType> = ({ defaultActiveKey, onClick, items, className
           <button
             key={item.key}
             onClick={() => onClickHandler(item)}
-            className={clsx(s.button, item.key === activeButton && s.active)}
+            className={clsx(s.button, item.key === activeButton.key && s.active)}
           >
             {item.label}
           </button>
