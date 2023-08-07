@@ -12,6 +12,7 @@ import {
   Radio,
   Typography,
   TextField,
+  Select,
 } from './components'
 
 const dataRadio: DataRadioType[] = [
@@ -52,6 +53,14 @@ const tabs: ItemsType[] = [
   },
 ]
 
+const dataSelect = [
+  { key: 'js', title: 'JS' },
+  { key: 'ts', title: 'TS' },
+  { key: 'react', title: 'React' },
+  { key: 'css', title: 'Css' },
+  { key: 'html', title: 'Html' },
+]
+
 export function App() {
   const [check, setCheck] = useState(false)
   const [textInput, setTextInput] = useState('')
@@ -70,10 +79,23 @@ export function App() {
     setActiveTabs(item)
   }
 
+  const [selectTitle, setSelectTitle] = useState(dataSelect[0].title)
+  const onValueChangeSelect = (title: string) => {
+    setSelectTitle(title)
+  }
+
   return (
     <div className={s.container}>
       <Header />
       <Card className={s.card}>
+        <Select
+          dataSelect={dataSelect}
+          placeholder={selectTitle}
+          onValueChange={onValueChangeSelect}
+          titleSelect={'asdasdas'}
+        />
+        <div style={{ marginBottom: '20px' }}></div>
+
         <Button variant={'primary'}>Primary button</Button>
         <Typography>asdwasd</Typography>
         <Typography as={'span'} variant={'body2'}>
