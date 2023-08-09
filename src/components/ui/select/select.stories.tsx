@@ -14,11 +14,11 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     dataSelect: [
-      { key: 'js', title: 'JS' },
-      { key: 'ts', title: 'TS' },
-      { key: 'react', title: 'React' },
-      { key: 'css', title: 'Css' },
-      { key: 'html', title: 'Html' },
+      { value: 'js', label: 'JS' },
+      { value: 'ts', label: 'TS' },
+      { value: 'react', label: 'React' },
+      { value: 'css', label: 'Css' },
+      { value: 'html', label: 'Html' },
     ],
     defaultValue: 'react',
   },
@@ -27,9 +27,9 @@ export const SelectName: Story = {
   args: {
     titleSelect: 'Select phone',
     dataSelect: [
-      { key: 'iphone', title: 'Iphone' },
-      { key: 'samsung', title: 'Samsung' },
-      { key: 'nokia', title: 'Nokia' },
+      { value: 'iphone', label: 'Iphone' },
+      { value: 'samsung', label: 'Samsung' },
+      { value: 'nokia', label: 'Nokia' },
     ],
     defaultValue: 'nokia',
   },
@@ -38,7 +38,7 @@ export const SelectName: Story = {
 export const SelectDisabled: Story = {
   args: {
     titleSelect: 'Select phone',
-    dataSelect: [{ key: 'samsung', title: 'Samsung' }],
+    dataSelect: [{ value: 'samsung', label: 'Samsung' }],
     defaultValue: 'samsung',
     disabled: true,
   },

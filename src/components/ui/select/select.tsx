@@ -8,8 +8,8 @@ import { Typography } from '../typography'
 import s from './select.module.scss'
 
 type DataSelectType = {
-  key: string
-  title: string
+  value: string
+  label: string
 }
 
 type SelectType = ComponentPropsWithoutRef<typeof SelectRadix.Root> & {
@@ -46,8 +46,8 @@ export const Select: FC<SelectType> = ({
               <SelectRadix.Group>
                 {dataSelect.map(item => {
                   return (
-                    <SelectItem key={item.key} value={item.key}>
-                      {item.title}
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
                     </SelectItem>
                   )
                 })}
