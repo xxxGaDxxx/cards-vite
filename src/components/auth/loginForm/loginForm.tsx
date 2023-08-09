@@ -15,7 +15,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
   return (
     <Card className={s.card}>
       <Typography variant={'large'} as={'h1'}>
-        Signe In
+        Sign In
       </Typography>
       <form onSubmit={handleSubmit}>
         {/*{rhf dev tool}*/}

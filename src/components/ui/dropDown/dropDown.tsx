@@ -1,63 +1,133 @@
-import { FC, ReactNode } from 'react'
+import { ComponentPropsWithoutRef, CSSProperties, FC, ReactNode, useState } from 'react'
 
-import { Root, Trigger, Portal, Content, Item, Arrow } from '@radix-ui/react-dropdown-menu'
+import * as DropdownMenuRadix from '@radix-ui/react-dropdown-menu'
+import { clsx } from 'clsx'
 
+import { More } from '../../../assets/icons'
 import { Typography } from '../typography'
 
 import s from './dropDown.module.scss'
 
-export type DataItem = {
-  id: string
-  label: string
-  email?: string
-  icon: ReactNode
+export type DropdownProps = {
+  children: ReactNode
+  align?: 'start' | 'center' | 'end'
+  trigger?: ReactNode
+  className?: string
+  style?: CSSProperties
 }
 
-type DropDownProps = {
-  label: string
-  icon?: ReactNode
-  dataMenu?: DataItem[]
-  onClickItem: (item: any) => void
-}
+export const Dropdown = ({ children, trigger, align = 'end', className, style }: DropdownProps) => {
+  const [open, setOpen] = useState(false)
 
-export const DropDown: FC<DropDownProps> = ({ label, dataMenu, icon, onClickItem }) => {
+  const classNames = {
+    button: s.button,
+    content: clsx(s.content, className),
+    arrowBox: s.arrowBox,
+    arrow: s.arrow,
+    itemsBox: s.itemsBox,
+    moreButton: s.moreButton,
+  }
+
   return (
-    <Root>
-      <Trigger className={s.trigger}>
-        <Typography as={'span'} variant={'subtitle1'} className={s.labelTrigger}>
-          {label}
-        </Typography>
+    <DropdownMenuRadix.Root open={open} onOpenChange={setOpen}>
+      <DropdownMenuRadix.Trigger asChild>
+        {trigger ?? (
+          <button className={classNames.moreButton}>
+            <More />
+          </button>
+        )}
+      </DropdownMenuRadix.Trigger>
+      <div>
+        {open && (
+          <DropdownMenuRadix.Portal forceMount>
+            <DropdownMenuRadix.Content
+              asChild
+              forceMount
+              className={classNames.content}
+              align={align}
+              sideOffset={8}
+              style={style}
+              onClick={event => event.stopPropagation()}
+            >
+              <div>
+                <DropdownMenuRadix.Arrow className={classNames.arrowBox} asChild>
+                  <div className={classNames.arrow} />
+                </DropdownMenuRadix.Arrow>
+                <div className={classNames.itemsBox}>{children}</div>
+              </div>
+            </DropdownMenuRadix.Content>
+          </DropdownMenuRadix.Portal>
+        )}
+      </div>
+    </DropdownMenuRadix.Root>
+  )
+}
 
-        {icon}
-      </Trigger>
+export type DropdownItemProps = {
+  children?: ReactNode
+  disabled?: boolean
+  onSelect: (event: Event) => void
+  className?: string
+  style?: CSSProperties
+}
 
-      <Portal>
-        <Content className={s.content}>
-          {dataMenu?.map(item => {
-            return (
-              <Item key={item.label} onClick={() => onClickItem(item)} className={s.item}>
-                {item.icon}
+export const DropdownItem: FC<DropdownItemProps> = ({
+  children,
+  disabled,
+  onSelect,
+  className,
+  style,
+}) => {
+  const classNames = {
+    item: clsx(s.item, className),
+  }
 
-                <div className={s.containerLabel}>
-                  <Typography as={'span'} variant={'subtitle2'} className={s.containerText}>
-                    {item.label}
-                  </Typography>
+  return (
+    <DropdownMenuRadix.Item
+      className={classNames.item}
+      disabled={disabled}
+      onSelect={onSelect}
+      style={style}
+      asChild
+    >
+      {children}
+    </DropdownMenuRadix.Item>
+  )
+}
 
-                  {item.email && (
-                    <Typography as={'span'} variant={'caption'} className={s.containerText}>
-                      {item.email}
-                    </Typography>
-                  )}
-                </div>
-              </Item>
-            )
-          })}
+export type DropdownItemWithIconProps = Omit<DropdownItemProps, 'children'> & {
+  icon: ReactNode
+  text: string
+} & ComponentPropsWithoutRef<'div'>
 
-          <Arrow className={s.arrowBox} asChild>
-            <div className={s.arrow} />
-          </Arrow>
-        </Content>
-      </Portal>
-    </Root>
+export const DropdownItemWithIcon: FC<DropdownItemWithIconProps> = ({
+  icon,
+  disabled,
+  onSelect,
+  text,
+  className,
+  style,
+  ...rest
+}) => {
+  const classNames = {
+    item: clsx(s.item, className),
+    itemIcon: clsx(s.itemIcon, disabled && s.disabled),
+  }
+
+  return (
+    <DropdownMenuRadix.Item
+      className={classNames.item}
+      disabled={disabled}
+      onSelect={onSelect}
+      onClick={event => event.stopPropagation()}
+      style={style}
+      asChild
+      {...rest}
+    >
+      <div>
+        <div className={classNames.itemIcon}>{icon}</div>
+        <Typography variant="caption">{text}</Typography>
+      </div>
+    </DropdownMenuRadix.Item>
   )
 }
