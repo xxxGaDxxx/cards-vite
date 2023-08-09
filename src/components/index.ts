@@ -1,4 +1,4 @@
 export * from './auth'
-export * from './header'
+export * from './layout/header'
 export * from './profile'
 export * from './ui'
