@@ -2,18 +2,18 @@ import { useState } from 'react'
 
 import s from './app.module.scss'
 import {
-  ItemsType,
-  Tabs,
-  Header,
   Button,
   Card,
   Checkbox,
   DataRadioType,
+  ItemsType,
   Radio,
-  Typography,
-  TextField,
   Select,
+  Tabs,
+  TextField,
+  Typography,
 } from './components'
+import { Layout } from './components/layout'
 
 const dataRadio: DataRadioType[] = [
   {
@@ -86,7 +86,7 @@ export function App() {
 
   return (
     <div className={s.container}>
-      <Header />
+      <Layout />
       <Card className={s.card}>
         <Select
           dataSelect={dataSelect}
