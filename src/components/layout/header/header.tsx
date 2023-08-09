@@ -20,7 +20,7 @@ export const Header = ({ isAuth, name = 'NoName', avatar, email, onSignOut }: He
   return (
     <div className={s.main}>
       <div className={s.container}>
-        <div className={s.logo}>
+        <div>
           <Button variant={'link'} as={Link} to={'/'}>
             <LogoIncubator />
           </Button>
