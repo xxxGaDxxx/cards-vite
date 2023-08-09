@@ -16,7 +16,7 @@ export type DropdownProps = {
   style?: CSSProperties
 }
 
-export const Dropdown = ({ children, trigger, align = 'end', className, style }: DropdownProps) => {
+export const DropDown = ({ children, trigger, align = 'end', className, style }: DropdownProps) => {
   const [open, setOpen] = useState(false)
 
   const classNames = {

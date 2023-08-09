@@ -3,12 +3,12 @@ import { Meta, StoryObj } from '@storybook/react'
 import { Profile, SignOut } from '../../../assets/icons'
 import { Avatar } from '../avatar'
 
-import { Dropdown, DropdownItemWithIcon } from '.'
+import { DropDown, DropdownItemWithIcon } from '.'
 
 const meta = {
   title: 'Components/Dropdown',
   tags: ['autodocs'],
-} satisfies Meta<typeof Dropdown>
+} satisfies Meta<typeof DropDown>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -17,7 +17,7 @@ export const WithTriggerButton: Story = {
   render: args => {
     return (
       <div>
-        <Dropdown
+        <DropDown
           trigger={
             <button>
               <Avatar
@@ -32,7 +32,7 @@ export const WithTriggerButton: Story = {
             <DropdownItemWithIcon icon={<Profile />} text="Learn" onSelect={() => {}} />
             <DropdownItemWithIcon icon={<SignOut />} text="Delete" onSelect={() => {}} />
           </>
-        </Dropdown>
+        </DropDown>
       </div>
     )
   },
