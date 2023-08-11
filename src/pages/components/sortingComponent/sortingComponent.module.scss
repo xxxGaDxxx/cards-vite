@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.containerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.containerSorting {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.search {
+  min-width: 150px;
+}
+
+.containerTabs {
+  margin: 0 25px 0 24px;
+
+  button {
+    white-space: nowrap;
+  }
+}
+
+.containerSlider {
+  margin-right: 36px;
+}

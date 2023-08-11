@@ -10,7 +10,7 @@ type PageProps = PropsWithChildren<{
 }>
 export const Page = ({ children, mt = '36px', flex = false }: PageProps) => {
   return (
-    <div className={clsx(s.content, flex && s.flex)} style={{ marginTop: mt }}>
+    <div className={clsx(s.content, s.page, flex && s.flex)} style={{ marginTop: mt }}>
       {children}
     </div>
   )

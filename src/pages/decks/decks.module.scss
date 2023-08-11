@@ -1,0 +1,25 @@
+.containerIcon {
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.button {
+  color: var(--color-light-100);
+
+  &:focus:enabled {
+    color: var(--color-light-700);
+  }
+
+  &:hover:enabled {
+    color: var(--color-light-700);
+  }
+
+  &:active:enabled {
+    color: var(--color-light-700);
+  }
+}
+
+.buttonIcon {
+  margin-right: 10px;
+}
