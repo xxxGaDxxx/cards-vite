@@ -2,8 +2,15 @@ import { useEffect } from 'react'
 
 import { Edit, PlayCircle, Trash } from '../../assets/icons'
 import { useDebounce } from '../../common/hooks/useDebounce.tsx'
-import { Button, ColumnType, Page, SortType, Table, TabsItemsType } from '../../components'
-import { Pagination } from '../../components/ui/pagination'
+import {
+  Button,
+  ColumnType,
+  Page,
+  SortType,
+  Table,
+  TabsItemsType,
+  Pagination,
+} from '../../components'
 import { useGetDecksQuery } from '../../services/decks/decks.ts'
 import {
   decksSliceActions,
@@ -18,6 +25,8 @@ import { useAppDispatch, useAppSelector } from '../../store/store.ts'
 import { SortingComponent } from '../components/sortingComponent'
 
 import s from './decks.module.scss'
+
+const DEFAULT_CARDS_COUNT = 10
 
 export const Decks = () => {
   const dispatch = useAppDispatch()
@@ -58,13 +67,13 @@ export const Decks = () => {
 
   const onClearFilter = () => {
     setTabActive(optionsTabs[1])
-    setSliderValue([0, decks?.maxCardsCount || 10])
+    setSliderValue([0, decks?.maxCardsCount || DEFAULT_CARDS_COUNT])
     setSearchByName('')
   }
 
   useEffect(() => {
     if (sliderValue[1] !== decks?.maxCardsCount) {
-      setSliderValue([sliderValue[0], decks?.maxCardsCount || 10])
+      setSliderValue([sliderValue[0], decks?.maxCardsCount || DEFAULT_CARDS_COUNT])
     }
   }, [decks?.maxCardsCount])
 
@@ -72,7 +81,7 @@ export const Decks = () => {
     <Page>
       <SortingComponent
         titlePage={' Packs List'}
-        maxCardsCount={decks?.maxCardsCount || 10}
+        maxCardsCount={decks?.maxCardsCount || DEFAULT_CARDS_COUNT}
         optionsTabs={optionsTabs}
         tabActive={tabActive}
         searchByName={searchByName}
@@ -83,7 +92,7 @@ export const Decks = () => {
         onSliderChange={setSliderValue}
         onTabsItem={setTabActive}
       />
-      <div>
+      <div className={s.containerTable}>
         <Table.Root style={{ width: '100%' }}>
           <Table.Header columns={columns} onSort={setOrderBy} sort={orderBy} />
           <Table.Body>
