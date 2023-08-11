@@ -12,7 +12,7 @@ type ControlButtonProps = {
 export const ControlButton = ({ onClick, disabled, direction = 'top' }: ControlButtonProps) => {
   return (
     <button className={s.item} onClick={onClick} disabled={disabled}>
-      <Arrow className={clsx(s[direction], s.icon)} />
+      <Arrow className={clsx(s[direction], s.icon)} size={16} />
     </button>
   )
 }
