@@ -1,7 +1,7 @@
 import { SVGProps, Ref, forwardRef, memo } from 'react'
 
 type PropsType = SVGProps<SVGSVGElement> & {
-  size?: number
+  size: number
 }
 
 const SvgComponent = ({ size, ...props }: PropsType, ref: Ref<SVGSVGElement>) => {

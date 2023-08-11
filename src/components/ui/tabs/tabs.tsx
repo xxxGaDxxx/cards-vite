@@ -4,20 +4,20 @@ import { clsx } from 'clsx'
 
 import s from './tabs.module.scss'
 
-export type ItemsType = {
+export type TabsItemsType = {
   key: string
   label: string
 }
 
 export type TabsType = {
-  items: ItemsType[]
-  onClick: (item: ItemsType) => void
-  activeButton: ItemsType
+  items: TabsItemsType[]
+  onClick: (item: TabsItemsType) => void
+  activeButton: TabsItemsType
   className?: string
 }
 
 export const Tabs: FC<TabsType> = ({ activeButton, onClick, items, className }) => {
-  const onClickHandler = (item: ItemsType) => {
+  const onClickHandler = (item: TabsItemsType) => {
     onClick(item)
   }
 

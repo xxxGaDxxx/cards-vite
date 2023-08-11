@@ -37,7 +37,7 @@ export const Select: FC<SelectType> = ({
         <SelectRadix.Trigger className={s.selectTrigger}>
           <SelectRadix.Value placeholder={placeholder} />
           <SelectRadix.Icon className={s.selectIcon}>
-            <Arrow />
+            <Arrow size={16} />
           </SelectRadix.Icon>
         </SelectRadix.Trigger>
         <SelectRadix.Portal>

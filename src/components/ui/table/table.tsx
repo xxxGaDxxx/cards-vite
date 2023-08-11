@@ -77,7 +77,7 @@ export const Header: FC<
         {columns.map(({ title, key, sortable }) => (
           <HeadCell key={key} onClick={handleSort(key, sortable)}>
             {title}
-            {sort && sort.key === key && <Arrow className={chevron} />}
+            {sort && sort.key === key && <Arrow size={16} className={chevron} />}
           </HeadCell>
         ))}
       </Row>

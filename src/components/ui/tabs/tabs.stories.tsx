@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import type { Meta } from '@storybook/react'
 
-import { ItemsType, Tabs } from './tabs.tsx'
+import { TabsItemsType, Tabs } from './tabs.tsx'
 
 export default {
   title: 'Components/Tabs',
@@ -28,7 +28,7 @@ export const Default = {
 
     const [activeBtn, setActiveBtn] = useState(tabs[1])
 
-    const onClickHandler = (item: ItemsType) => {
+    const onClickHandler = (item: TabsItemsType) => {
       setActiveBtn(item)
     }
 
