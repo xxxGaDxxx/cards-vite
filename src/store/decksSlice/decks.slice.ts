@@ -4,7 +4,7 @@ import { SortType, TabsItemsType } from '../../components'
 import { RootState } from '../store.ts'
 
 const initialState = {
-  itemsPerPage: 10,
+  itemsPerPage: 7,
   currentPage: 1,
   searchByName: '',
   sliderValue: [0, 10] as [number, number],

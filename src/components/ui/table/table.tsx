@@ -30,7 +30,7 @@ export type HeadCellType = ComponentProps<'th'> & {
 
 export const HeadCell: FC<HeadCellType> = ({ className, children, sortable, ...rest }) => {
   return (
-    <th className={clsx(className, s.headCell, sortable && s.sortable)} {...rest}>
+    <th className={clsx(className, s.headCell, sortable ? s.sortable : '')} {...rest}>
       <span>{children}</span>
     </th>
   )
@@ -75,7 +75,7 @@ export const Header: FC<
     <Thead {...restProps}>
       <Row>
         {columns.map(({ title, key, sortable }) => (
-          <HeadCell key={key} onClick={handleSort(key, sortable)}>
+          <HeadCell key={key} onClick={handleSort(key, sortable)} sortable={sortable}>
             {title}
             {sort && sort.key === key && <Arrow size={16} className={chevron} />}
           </HeadCell>
