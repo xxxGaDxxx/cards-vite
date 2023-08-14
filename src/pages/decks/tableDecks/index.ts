@@ -1,1 +1,1 @@
-export * from './tableDecks.tsx'
+export * from './tableDecks'
