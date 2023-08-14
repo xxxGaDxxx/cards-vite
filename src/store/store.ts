@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
-import { baseApi } from '../services/baseApi.ts'
+import { baseApi } from '../services/baseApi'
 
-import { decksSlice } from './decksSlice/decks.slice.ts'
+import { decksSlice } from './decksSlice/decks.slice'
 
 export const store = configureStore({
   reducer: {

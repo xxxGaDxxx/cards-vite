@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import type { Meta } from '@storybook/react'
 
-import { TabsItemsType, Tabs } from './tabs.tsx'
+import { TabsItemsType, Tabs } from './tabs'
 
 export default {
   title: 'Components/Tabs',

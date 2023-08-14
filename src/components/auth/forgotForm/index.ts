@@ -1,1 +1,1 @@
-export * from './forgotForm.tsx'
+export * from './forgotForm'

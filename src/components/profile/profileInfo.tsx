@@ -1,14 +1,10 @@
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 
 import { Edit, Logout } from '../../assets/icons'
-import { Avatar } from '../ui/avatar'
-import { Button } from '../ui/button'
-import { Card } from '../ui/card'
-import { ControlledTextField } from '../ui/controlled'
-import { Typography } from '../ui/typography'
+import { Avatar, Button, Card, ControlledTextField, Typography } from '../ui'
 
 import s from './profileInfo.module.scss'
-import { ProfileFormType, useProfileForm } from './schemaProfile.ts'
+import { ProfileFormType, useProfileForm } from './schemaProfile'
 
 export const ProfileInfo = () => {
   const fileInputRef = useRef<HTMLInputElement>(null)

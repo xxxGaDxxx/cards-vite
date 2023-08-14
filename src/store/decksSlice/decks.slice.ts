@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { SortType, TabsItemsType } from '../../components'
-import { RootState } from '../store.ts'
+import { RootState } from '../store'
 
 const initialState = {
   itemsPerPage: 7,

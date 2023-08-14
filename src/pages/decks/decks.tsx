@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-import { useDebounce } from '../../common/hooks/useDebounce.tsx'
+import { useDebounce } from '../../common/hooks/useDebounce'
 import { Page, Pagination, SortType, TabsItemsType } from '../../components'
-import { useGetDecksQuery } from '../../services/decks/decks.ts'
+import { useGetDecksQuery } from '../../services/decks/decks'
 import {
   decksSliceActions,
   selectCurrentPage,
@@ -11,8 +11,8 @@ import {
   selectSearchByName,
   selectSliderValue,
   selectTabActive,
-} from '../../store/decksSlice/decks.slice.ts'
-import { useAppDispatch, useAppSelector } from '../../store/store.ts'
+} from '../../store/decksSlice/decks.slice'
+import { useAppDispatch, useAppSelector } from '../../store/store'
 import { SortingComponent } from '../components/sortingComponent'
 
 import { TableDecks } from './tableDecks'

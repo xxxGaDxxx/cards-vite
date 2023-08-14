@@ -1,10 +1,7 @@
 import { SubmitHandler } from 'react-hook-form'
 
-import { Button } from '../../ui/button'
-import { Card } from '../../ui/card'
-import { ControlledTextField } from '../../ui/controlled'
-import { Typography } from '../../ui/typography'
-import { RegisterFormType, useRegisterForm } from '../schemaForms.ts'
+import { Button, Card, ControlledTextField, Typography } from '../../ui/'
+import { RegisterFormType, useRegisterForm } from '../schemaForms'
 import s from '../stylesForm.module.scss'
 
 type RegisterFormProps = {

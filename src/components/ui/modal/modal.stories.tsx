@@ -7,7 +7,7 @@ import { Button } from '../button'
 import { TextField } from '../textField'
 import { Typography } from '../typography'
 
-import { Modal, ModalType } from './modal.tsx'
+import { Modal, ModalType } from './modal'
 
 export default {
   title: 'Components/Modal',

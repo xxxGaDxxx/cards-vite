@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import { CheckEmail } from './checkEmail.tsx'
+import { CheckEmail } from './checkEmail'
 
 export default {
   title: 'Authorizing/Check Email',

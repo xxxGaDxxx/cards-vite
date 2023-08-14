@@ -1,1 +1,1 @@
-export * from './sortingComponent.tsx'
+export * from './sortingComponent'

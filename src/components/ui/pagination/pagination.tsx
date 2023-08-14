@@ -1,11 +1,11 @@
 import { memo } from 'react'
 
-import { usePagination } from '../../../common/hooks/usePagination.ts'
+import { usePagination } from '../../../common/hooks/usePagination'
 
-import { ControlButton } from './controlButton/controlButton.tsx'
-import { MainPaginationButtons } from './mainPaginationButtons/mainPaginationButtons.tsx'
+import { ControlButton } from './controlButton/controlButton'
+import { MainPaginationButtons } from './mainPaginationButtons/mainPaginationButtons'
 import s from './pagination.module.scss'
-import { PerPageSelect } from './perPageSelect/perPageSelect.tsx'
+import { PerPageSelect } from './perPageSelect/perPageSelect'
 
 type PaginationPropsType = {
   count: number
