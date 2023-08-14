@@ -17,6 +17,7 @@ export const PerPageSelect = ({ perPage, perPageOptions, onPerPageChange }: PerP
   return (
     <div className={s.selectBox}>
       <Select
+        // open={true}
         value={perPage.toString()}
         dataSelect={selectOptions}
         onValueChange={onPerPageChange}

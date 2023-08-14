@@ -27,6 +27,7 @@ export const Tabs: FC<TabsType> = ({ activeButton, onClick, items, className }) 
         return (
           <button
             key={item.key}
+            id={item.key}
             onClick={() => onClickHandler(item)}
             className={clsx(s.button, item.key === activeButton.key && s.active)}
           >

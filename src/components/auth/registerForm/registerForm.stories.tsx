@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import { RegisterForm } from './registerForm.tsx'
+import { RegisterForm } from './registerForm'
 
 export default {
   title: 'Authorizing/Register Form',

@@ -1,7 +1,5 @@
 import { EmailIcon } from '../../../assets/icons'
-import { Button } from '../../ui/button'
-import { Card } from '../../ui/card'
-import { Typography } from '../../ui/typography'
+import { Button, Card, Typography } from '../../ui'
 import style from '../stylesForm.module.scss'
 
 import s from './checkEmail.module.scss'

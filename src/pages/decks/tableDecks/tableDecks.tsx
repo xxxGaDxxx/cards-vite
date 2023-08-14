@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { Edit, PlayCircle, Trash } from '../../../assets/icons'
 import { Button, ColumnType, SortType, Table } from '../../../components'
-import { Deck } from '../../../services/decks/types.ts'
+import { Deck } from '../../../services/decks/types'
 
 import s from './tableDecks.module.scss'
 

@@ -129,8 +129,6 @@ export const WithSort = {
     const [sort, setSort] = useState<SortType>(null)
     const sortString: string | null = sort ? `${sort?.key}-${sort?.direction}` : null
 
-    console.log(sort, sortString)
-
     const columns: ColumnType[] = [
       {
         key: 'title',

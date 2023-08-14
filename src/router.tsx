@@ -6,8 +6,8 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 
-import { Layout } from './components/layout'
-import { Decks } from './pages/decks/decks.tsx'
+import { Layout } from './components'
+import { Decks } from './pages/decks/decks'
 
 const publicRoutes: RouteObject[] = [
   {
