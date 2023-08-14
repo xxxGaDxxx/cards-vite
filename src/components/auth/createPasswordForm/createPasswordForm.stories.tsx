@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import { CreatePasswordForm } from './createPasswordForm.tsx'
+import { CreatePasswordForm } from './createPasswordForm'
 
 export default {
   title: 'Authorizing/Create Password Form',

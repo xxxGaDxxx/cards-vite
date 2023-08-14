@@ -2,7 +2,7 @@ import { DevTool } from '@hookform/devtools'
 import { SubmitHandler } from 'react-hook-form'
 
 import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '../../ui'
-import { LoginFormType, useLoginForm } from '../schemaForms.ts'
+import { LoginFormType, useLoginForm } from '../schemaForms'
 import s from '../stylesForm.module.scss'
 
 type LoginFormProps = {

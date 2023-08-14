@@ -1,4 +1,4 @@
-import { PageButton } from '../pageButton/pageButton.tsx'
+import { PageButton } from '../pageButton/pageButton'
 
 import s from './mainPaginationButtons.module.scss'
 

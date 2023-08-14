@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import { LoginForm } from './loginForm.tsx'
+import { LoginForm } from './loginForm'
 
 export default {
   title: 'Authorizing/Login Form',

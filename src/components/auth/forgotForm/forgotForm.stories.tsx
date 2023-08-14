@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react'
 
-import { ForgotForm } from './forgotForm.tsx'
+import { ForgotForm } from './forgotForm'
 
 export default {
   title: 'Authorizing/Forgot Form',
