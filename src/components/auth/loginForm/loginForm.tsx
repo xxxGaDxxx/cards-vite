@@ -1,17 +1,22 @@
 import { DevTool } from '@hookform/devtools'
 import { SubmitHandler } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
+import { PATH } from '../../../common/constants/routePath'
+import { LoginArgs } from '../../../services/auth/types'
 import { Button, Card, ControlledCheckbox, ControlledTextField, Typography } from '../../ui'
-import { LoginFormType, useLoginForm } from '../schemaForms'
+import { useLoginForm } from '../schemaForms'
 import s from '../stylesForm.module.scss'
 
 type LoginFormProps = {
-  onSubmit: SubmitHandler<LoginFormType>
+  onSubmit: SubmitHandler<LoginArgs>
   isSubmitting: boolean
 }
 
 export const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
   const { control, handleSubmit } = useLoginForm(onSubmit)
+
+  const navigate = useNavigate()
 
   return (
     <Card className={s.card}>
@@ -28,6 +33,7 @@ export const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
           name={'email'}
           control={control}
           placeholder={'email'}
+          autoComplete="current-email"
           containerProps={{ className: s.textField }}
         />
 
@@ -37,6 +43,7 @@ export const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
           control={control}
           type={'password'}
           placeholder={'password'}
+          autoComplete="current-password"
           containerProps={{ className: s.textField }}
         />
 
@@ -61,7 +68,12 @@ export const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
         Don&apos;t have an account?
       </Typography>
 
-      <Button as={'a'} variant={'link'} className={s.signUp}>
+      <Button
+        variant={'link'}
+        as={'a'}
+        onClick={() => navigate(PATH.REGISTRATION)}
+        className={s.signUp}
+      >
         Sign Up
       </Button>
     </Card>

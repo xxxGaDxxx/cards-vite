@@ -6,21 +6,25 @@ import {
   RouterProvider,
 } from 'react-router-dom'
 
+import { PATH } from './common/constants/routePath'
 import { Layout } from './components'
-import { Decks } from './pages/decks/decks'
-import { LoginPage } from './pages/login'
+import { Decks, LoginPage, SignupPage } from './pages'
 import { useMeQuery } from './services/auth/auth'
 
 const publicRoutes: RouteObject[] = [
   {
-    path: '/login',
+    path: PATH.LOGIN,
     element: <LoginPage />,
+  },
+  {
+    path: PATH.REGISTRATION,
+    element: <SignupPage />,
   },
 ]
 
 const privateRoutes: RouteObject[] = [
   {
-    path: '/',
+    path: PATH.DECKS,
     element: <Decks />,
   },
 ]
@@ -49,5 +53,5 @@ function PrivateRoutes() {
 
   const isAuthenticated = !!data
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
+  return isAuthenticated ? <Outlet /> : <Navigate to={PATH.LOGIN} />
 }
