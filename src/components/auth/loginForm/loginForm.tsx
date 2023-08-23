@@ -55,7 +55,12 @@ export const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
           className={s.checkbox}
         />
 
-        <Typography as={'a'} variant={'body2'} className={s.forgotPassword}>
+        <Typography
+          as={'a'}
+          variant={'body2'}
+          className={s.forgotPassword}
+          onClick={() => navigate(PATH.PASSWORD_RECOVERY)}
+        >
           Forgot password?
         </Typography>
 

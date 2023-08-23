@@ -31,3 +31,9 @@ export type SignupResponse = {
   email: string
   name: string
 }
+
+export type PasswordRecoveryArgs = {
+  email: string
+  html?: string
+  subject?: string
+}

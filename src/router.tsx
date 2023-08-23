@@ -8,7 +8,7 @@ import {
 
 import { PATH } from './common/constants/routePath'
 import { Layout } from './components'
-import { Decks, LoginPage, SignupPage } from './pages'
+import { Decks, LoginPage, PasswordRecoveryPage, SignupPage, CheckEmailPage } from './pages'
 import { useMeQuery } from './services/auth/auth'
 
 const publicRoutes: RouteObject[] = [
@@ -19,6 +19,14 @@ const publicRoutes: RouteObject[] = [
   {
     path: PATH.REGISTRATION,
     element: <SignupPage />,
+  },
+  {
+    path: PATH.PASSWORD_RECOVERY,
+    element: <PasswordRecoveryPage />,
+  },
+  {
+    path: PATH.CHECK_EMAIL,
+    element: <CheckEmailPage />,
   },
 ]
 
