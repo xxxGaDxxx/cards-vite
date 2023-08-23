@@ -18,7 +18,7 @@ export const Header = ({ isAuth, name = 'NoName', avatar, email, onSignOut }: He
 
   //TODO navigate
   return (
-    <div className={s.main}>
+    <header className={s.main}>
       <div className={s.container}>
         <div>
           <Button variant={'link'} as={Link} to={'/'}>
@@ -67,6 +67,6 @@ export const Header = ({ isAuth, name = 'NoName', avatar, email, onSignOut }: He
           )}
         </div>
       </div>
-    </div>
+    </header>
   )
 }
