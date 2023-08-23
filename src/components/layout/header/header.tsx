@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 
 import { LogoIncubator, Profile, SignOut } from '../../../assets/icons'
+import { PATH } from '../../../common/constants/routePath'
 import { Avatar, Button, DropDown, DropdownItem, DropdownItemWithIcon, Typography } from '../../ui'
 
 import s from './header.module.scss'
@@ -21,14 +22,14 @@ export const Header = ({ isAuth, name = 'NoName', avatar, email, onSignOut }: He
     <header className={s.main}>
       <div className={s.container}>
         <div>
-          <Button variant={'link'} as={Link} to={'/'}>
+          <Button variant={'link'} as={Link} to={PATH.DECKS}>
             <LogoIncubator />
           </Button>
         </div>
         <div className={s.rightItem}>
           {!isAuth ? (
             <div className={s.button}>
-              <Button onClick={() => navigate('/login')} variant="primary">
+              <Button onClick={() => navigate(PATH.LOGIN)} variant="primary">
                 Sign In
               </Button>
             </div>
@@ -59,7 +60,7 @@ export const Header = ({ isAuth, name = 'NoName', avatar, email, onSignOut }: He
                 <DropdownItemWithIcon
                   icon={<Profile />}
                   text="Profile"
-                  onSelect={() => navigate('/profile')}
+                  onSelect={() => navigate(PATH.PROFILE)}
                 />
                 <DropdownItemWithIcon icon={<SignOut />} text="Sign out" onSelect={onSignOut} />
               </DropDown>

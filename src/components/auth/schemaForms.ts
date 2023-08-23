@@ -2,6 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { LoginArgs } from '../../services/auth/types'
+
 const validate = {
   email: z.string().trim().nonempty('Enter Email').email('Invalid email address'),
   password: z
@@ -22,10 +24,8 @@ export const schemaLogin = z.object({
   }),
 })
 
-export type LoginFormType = z.infer<typeof schemaLogin>
-
-export const useLoginForm = (onSubmit: SubmitHandler<LoginFormType>) => {
-  const { handleSubmit, ...restProps } = useForm<LoginFormType>({
+export const useLoginForm = (onSubmit: SubmitHandler<LoginArgs>) => {
+  const { handleSubmit, ...restProps } = useForm<LoginArgs>({
     resolver: zodResolver(schemaLogin),
     mode: 'onSubmit',
   })
