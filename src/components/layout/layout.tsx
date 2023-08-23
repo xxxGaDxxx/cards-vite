@@ -1,13 +1,24 @@
 import { Outlet } from 'react-router-dom'
 
+import { useLogoutMutation, useMeQuery } from '../../services/auth/auth'
+
 import { Header } from './header'
 
 export const Layout = () => {
+  const { data } = useMeQuery()
+  const [logout] = useLogoutMutation()
+
   return (
-    <div>
-      <Header isAuth={false} onSignOut={() => {}} />
+    <>
+      <Header
+        isAuth={Boolean(data)}
+        name={data?.name}
+        email={data?.email}
+        avatar={data?.avatar}
+        onSignOut={logout}
+      />
       <div style={{ height: '30px' }} />
       <Outlet />
-    </div>
+    </>
   )
 }

@@ -7,9 +7,10 @@ import s from '../stylesForm.module.scss'
 
 type LoginFormProps = {
   onSubmit: SubmitHandler<LoginFormType>
+  isSubmitting: boolean
 }
 
-export const LoginForm = ({ onSubmit }: LoginFormProps) => {
+export const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
   const { control, handleSubmit } = useLoginForm(onSubmit)
 
   return (
@@ -51,7 +52,7 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
           Forgot password?
         </Typography>
 
-        <Button type={'submit'} fullWidth className={s.button}>
+        <Button type={'submit'} fullWidth className={s.button} disabled={isSubmitting}>
           Sign In
         </Button>
       </form>

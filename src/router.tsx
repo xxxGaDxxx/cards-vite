@@ -8,11 +8,13 @@ import {
 
 import { Layout } from './components'
 import { Decks } from './pages/decks/decks'
+import { LoginPage } from './pages/login'
+import { useMeQuery } from './services/auth/auth'
 
 const publicRoutes: RouteObject[] = [
   {
     path: '/login',
-    element: <div>login</div>,
+    element: <LoginPage />,
   },
 ]
 
@@ -41,7 +43,11 @@ export const Router = () => {
 }
 
 function PrivateRoutes() {
-  const isAuthenticated = true
+  const { data, isLoading } = useMeQuery()
+
+  if (isLoading) return <div>...loading</div>
+
+  const isAuthenticated = !!data
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
 }
