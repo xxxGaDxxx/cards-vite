@@ -37,3 +37,8 @@ export type PasswordRecoveryArgs = {
   html?: string
   subject?: string
 }
+
+export type resetPassword = {
+  token: string
+  password: string
+}

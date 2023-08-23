@@ -4,6 +4,7 @@ import {
   LoginArgs,
   LoginResponse,
   PasswordRecoveryArgs,
+  resetPassword,
   SignupArgs,
   SignupResponse,
   UserArgs,
@@ -30,7 +31,7 @@ const authApi = baseApi.injectEndpoints({
           return {
             url: 'v1/auth/login',
             method: 'POST',
-            params: arg,
+            body: arg,
           }
         },
         invalidatesTags: ['Me'],
@@ -79,6 +80,16 @@ const authApi = baseApi.injectEndpoints({
           }
         },
       }),
+
+      resetPassword: builder.mutation<unknown, resetPassword>({
+        query: arg => {
+          return {
+            url: `v1/auth/reset-password/${arg.token}`,
+            method: 'POST',
+            body: { password: arg.password },
+          }
+        },
+      }),
     }
   },
 })
@@ -89,4 +100,5 @@ export const {
   useLogoutMutation,
   useSignupMutation,
   usePasswordRecoveryMutation,
+  useResetPasswordMutation,
 } = authApi
