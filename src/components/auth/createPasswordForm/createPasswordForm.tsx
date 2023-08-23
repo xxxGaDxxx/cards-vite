@@ -7,9 +7,10 @@ import s from '../stylesForm.module.scss'
 
 type CreatePasswordFormProps = {
   onSubmit: SubmitHandler<CreatePasswordFormType>
+  isSubmitting: boolean
 }
 
-export const CreatePasswordForm = ({ onSubmit }: CreatePasswordFormProps) => {
+export const CreatePasswordForm = ({ isSubmitting, onSubmit }: CreatePasswordFormProps) => {
   const { control, handleSubmit } = useCreatePasswordForm(onSubmit)
 
   return (
@@ -36,7 +37,7 @@ export const CreatePasswordForm = ({ onSubmit }: CreatePasswordFormProps) => {
           Create new password and we will send you further instructions to email
         </Typography>
 
-        <Button type={'submit'} fullWidth>
+        <Button type={'submit'} fullWidth disabled={isSubmitting}>
           Create New Password
         </Button>
       </form>
