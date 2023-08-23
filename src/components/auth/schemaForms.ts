@@ -8,7 +8,7 @@ const validate = {
     .string()
     .trim()
     .nonempty('Enter Password')
-    .min(8, 'Password must be at least 8 characters'),
+    .min(3, 'Password must be at least 3 characters'),
 }
 
 //Login Form
