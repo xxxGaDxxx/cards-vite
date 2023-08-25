@@ -12,7 +12,7 @@ export const LoginPage = () => {
 
   const navigate = useNavigate()
 
-  if (data) return <Navigate to="/" />
+  if (data) return <Navigate to={PATH.DECKS} />
 
   const handleLogin = async (data: LoginArgs) => {
     try {
