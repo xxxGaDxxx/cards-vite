@@ -1,4 +1,4 @@
-import { CheckEmail } from '../../components'
+import { CheckEmail } from '../../../components'
 
 export const CheckEmailPage = () => {
   return <CheckEmail />
