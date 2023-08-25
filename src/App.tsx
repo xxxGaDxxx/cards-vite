@@ -1,14 +1,16 @@
 import { Provider } from 'react-redux'
 
+import { Toast } from './components'
 import { Router } from './router'
 import { store } from './store/store'
 
 export function App() {
   return (
-    <div>
+    <>
       <Provider store={store}>
+        <Toast />
         <Router />
       </Provider>
-    </div>
+    </>
   )
 }

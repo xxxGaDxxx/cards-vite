@@ -42,3 +42,8 @@ export type resetPassword = {
   token: string
   password: string
 }
+
+export type BaseQueryError = {
+  data: any
+  status: number
+}
