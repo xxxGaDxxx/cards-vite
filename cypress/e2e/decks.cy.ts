@@ -1,9 +1,24 @@
 /// <reference types="cypress" />
 
 describe('Таблица с паками', () => {
+  it('Тест с авторизацией', () => {
+    cy.request({
+      method: 'POST',
+      url: 'https://api.flashcards.andrii.es/v1/auth/login',
+      body: {
+        email: 'qwegadqwe@gmail.com',
+        password: '123qwe',
+      },
+    }).then(() => {
+      cy.visit('http://localhost:5173/decks')
+      // Ваши проверки и действия на странице с приватным роутингом
+      cy.get('input[type="search"]').should('have.value', '')
+    })
+  })
+
   it('ночальное состояние фильтров', () => {
     //TODO изменить url
-    cy.visit('http://localhost:5173/')
+    cy.visit('http://localhost:5173/decks')
 
     //проверям что input пуст
     cy.get('input[type="search"]').should('have.value', '')
