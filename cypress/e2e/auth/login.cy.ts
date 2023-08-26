@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 describe('Логинизация', () => {
   it('Начальное состояние формы', () => {
-    cy.visit('http://localhost:5173/')
+    cy.visit(`${Cypress.env('API_BASE_URL')}/`)
 
     //Проверка, что все инпуты пусты
     cy.get('input[name="email"]').should('have.value', '')
@@ -12,7 +12,7 @@ describe('Логинизация', () => {
   })
 
   it('Заполнение формы не правильно', () => {
-    cy.visit('http://localhost:5173/')
+    cy.visit(`${Cypress.env('API_BASE_URL')}/`)
 
     //Ввод значений в input
     cy.get('input[name="email"]').type('qweasd')
@@ -43,7 +43,7 @@ describe('Логинизация', () => {
   })
 
   it('Заполнение формы с правильными данными', () => {
-    cy.visit('http://localhost:5173/')
+    cy.visit(`${Cypress.env('API_BASE_URL')}/`)
 
     //Ввод значений в input
     cy.get('input[name="email"]').type('qwegadqwe@gmail.com')
@@ -59,6 +59,6 @@ describe('Логинизация', () => {
     cy.get('form').find('button:contains("Sign In")').should('be.disabled')
 
     //Проверка, что перешли на другую страницу
-    cy.url().should('eq', 'http://localhost:5173/decks')
+    cy.url().should('eq', `${Cypress.env('API_BASE_URL')}/decks`)
   })
 })

@@ -1,13 +1,13 @@
 /// <reference types="cypress" />
 describe('Отправка email для востановления пароля', () => {
   it('Начальное состояние формы, проверка валидации, отправка', () => {
-    cy.visit('http://localhost:5173/')
+    cy.visit(`${Cypress.env('API_BASE_URL')}/`)
 
     //Кликнуть по ссылки для перехода
     cy.contains('a', 'Forgot password?').click()
 
     //Проверка, что перешли на другую страницу
-    cy.url().should('eq', 'http://localhost:5173/password-recovery')
+    cy.url().should('eq', `${Cypress.env('API_BASE_URL')}/password-recovery`)
 
     //Проверка, что в элементaх <p> не содержится ошибкок
     cy.get('input[name="email"]').next('p').should('have.text', '')
@@ -69,13 +69,13 @@ describe('Отправка email для востановления пароля'
       .should('exist')
 
     //Проверка, что перешли на другую страницу
-    cy.url().should('eq', 'http://localhost:5173/check-email')
+    cy.url().should('eq', `${Cypress.env('API_BASE_URL')}/check-email`)
 
     //Кликнуть для перехода назад назад
     cy.contains('a', 'Back to Sign In').click()
 
     //Проверка, что перешли на другую страницу
-    cy.url().should('eq', 'http://localhost:5173/')
+    cy.url().should('eq', `${Cypress.env('API_BASE_URL')}/`)
 
     //Подождать две секунды что бы ошибка пропала
     cy.wait(2000)
