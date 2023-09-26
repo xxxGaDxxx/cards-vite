@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { useDebounce } from '../../common/hooks/useDebounce'
 import { Page, Pagination, SortType, TabsItemsType } from '../../components'
+import { useMeQuery } from '../../services/auth/auth'
 import { useGetDecksQuery } from '../../services/decks/decks'
 import {
   decksSliceActions,
@@ -49,9 +50,12 @@ export const Decks = () => {
 
   const isAllPack = tabActive.key === 'all'
 
+  const { data: me } = useMeQuery()
+
   const { data: decks, isSuccess } = useGetDecksQuery({
     minCardsCount: sliderValue[0],
     maxCardsCount: sliderValue[1],
+    authorId: isAllPack ? undefined : me?.id,
     name: debounceText,
     currentPage: currentPage,
     itemsPerPage: itemsPerPage,
@@ -96,14 +100,16 @@ export const Decks = () => {
               isAllPack={isAllPack}
             />
 
-            <Pagination
-              count={decks?.pagination.totalPages || itemsPerPage}
-              page={decks?.pagination?.currentPage || currentPage}
-              onChange={setCurrentPage}
-              onPerPageChange={setItemsPerPage}
-              perPage={decks?.pagination.itemsPerPage}
-              perPageOptions={[4, 7, 10]}
-            />
+            {decks?.items.length ? (
+              <Pagination
+                count={decks?.pagination.totalPages || itemsPerPage}
+                page={decks?.pagination?.currentPage || currentPage}
+                onChange={setCurrentPage}
+                onPerPageChange={setItemsPerPage}
+                perPage={decks?.pagination.itemsPerPage}
+                perPageOptions={[4, 7, 10]}
+              />
+            ) : null}
           </>
         )}
       </Page>
