@@ -34,6 +34,7 @@ export const LoginForm = ({ isSubmitting, onSubmit }: LoginFormProps) => {
           control={control}
           placeholder={'email'}
           autoComplete="current-email"
+          inputMode="numeric"
           containerProps={{ className: s.textField }}
         />
 
